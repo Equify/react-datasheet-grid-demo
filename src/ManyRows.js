@@ -1,6 +1,6 @@
 import faker from 'faker'
 import { useState } from 'react'
-import { checkboxColumn, DataSheetGrid, floatColumn, textColumn } from 'react-datasheet-grid'
+import { checkboxColumn, DataSheetGrid, floatColumn, textColumn, progressColumn } from 'react-datasheet-grid'
 import { Code } from './Code'
 
 const code = `
@@ -32,7 +32,8 @@ export const MyComponent = () => {
 export const ManyRows = () => {
   const [ data, setData ] = useState(() => new Array(100000).fill(0).map(() => ({
     active: faker.random.boolean(),
-    number: faker.random.number(),
+    progress: faker.random.number(100) / 100,
+    number: faker.random.number(200),
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
     title: faker.name.title(),
@@ -51,7 +52,8 @@ export const ManyRows = () => {
           checkboxColumn({ key: 'active', title: 'Active', width: '0 0 60px' }),
           textColumn({ key: 'firstName', title: 'First name', minWidth: 200 }),
           textColumn({ key: 'lastName', title: 'Last name', minWidth: 200 }),
-          floatColumn({ key: 'number', title: 'Number', minWidth: 200 }),
+          progressColumn({ key: 'progress', title: 'Progress', minWidth: 150 }),
+          floatColumn({ key: 'number', title: 'Number', minWidth: 150 }),
           textColumn({ key: 'title', title: 'Title', minWidth: 200 }),
           textColumn({ key: 'job', title: 'Job', minWidth: 200 }),
         ]}
