@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import 'react-datasheet-grid/dist/index.css'
+import './App.css'
+import { Responsive } from './Responsive'
+import { UnderlyingData } from './UnderlyingData'
+import { DisabledColumns } from './DisabledColumns'
+import { LockRows } from './LockRows'
+import { ManyRows } from './ManyRows'
+import { UniqId } from './UniqId'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="App">
+      <h1>react-datasheet-grid</h1>
+      <p>
+        <a href="https://github.com/Equify/react-datasheet-grid">GitHub</a>
+        <span style={{ padding: '0 10px' }}>|</span>
+        <a href="https://www.npmjs.com/package/react-datasheet-grid">NPM</a>
+      </p>
+
+      <ManyRows />
+      <UnderlyingData />
+      <Responsive />
+      <LockRows />
+      <DisabledColumns />
+      <UniqId />
+    </main>
   );
 }
 
